@@ -1,0 +1,132 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * HerChoice design system.
+ * Burgundy #641F3A · Warm Cream #F5EBDD · Deep Navy #172A46 · Soft Rose #C98F9D
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 14px);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-cream: var(--cream);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-rose: var(--rose);
+  --shadow-soft: 0 2px 8px -2px oklch(0.32 0.11 5 / 0.08), 0 14px 40px -18px oklch(0.32 0.11 5 / 0.18);
+  --shadow-lift: 0 8px 20px -6px oklch(0.32 0.11 5 / 0.14), 0 28px 60px -24px oklch(0.32 0.11 5 / 0.24);
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.955 0.021 76.5); /* warm cream #F5EBDD */
+  --foreground: oklch(0.28 0.045 259); /* deep navy #172A46 */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.28 0.045 259);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.28 0.045 259);
+  --primary: oklch(0.348 0.108 5.5); /* burgundy #641F3A */
+  --primary-foreground: oklch(0.985 0.012 76.5);
+  --secondary: oklch(0.925 0.026 76.5);
+  --secondary-foreground: oklch(0.348 0.108 5.5);
+  --muted: oklch(0.93 0.022 76.5);
+  --muted-foreground: oklch(0.5 0.03 268);
+  --accent: oklch(0.72 0.062 5.5); /* soft rose #C98F9D */
+  --accent-foreground: oklch(0.28 0.045 259);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.023 76.5);
+  --input: oklch(0.88 0.023 76.5);
+  --ring: oklch(0.348 0.108 5.5);
+  --cream: oklch(0.955 0.021 76.5);
+  --navy: oklch(0.28 0.045 259);
+  --navy-foreground: oklch(0.965 0.015 76.5);
+  --rose: oklch(0.72 0.062 5.5);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility container-hc {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 1024px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@utility eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+@utility reveal {
+  animation: hc-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hc-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
