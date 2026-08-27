@@ -46,34 +46,34 @@ export type Product = {
 
 const sharedFeatureImages: FeatureCard[] = [
   {
-    title: "Head & Neck Support",
-    description: "Comfort-focused support around baby's head and neck.",
-    image: featureHead,
+    title: "Head & Neck Support Pillow",
+    description: "Comfort-focused support pillow around baby's head and neck.",
+    image: "/headneck.jpeg",
   },
   {
     title: "Wide Cushioned Shoulder Straps",
-    description: "Designed for comfortable everyday carrying.",
-    image: featureStraps,
+    description: "Wide padded shoulder straps designed for comfortable everyday carrying.",
+    image: "/shoulderstraps.jpeg",
   },
   {
-    title: "Adjustable Support",
-    description: "Flexible adjustment for different users.",
-    image: featureStraps,
+    title: "Hard Board Support with Air Holes",
+    description: "Ergonomic hard board back support featuring breathable air holes.",
+    image: "/hardboard.jpeg",
   },
   {
-    title: "Storage Pocket",
-    description: "Convenient space for small essentials.",
-    image: featurePocket,
+    title: "Arm Holes",
+    description: "Softly padded arm holes for baby's natural arm positioning and comfort.",
+    image: "/armholes.jpeg",
   },
   {
-    title: "Cushioned Seat",
-    description: "Designed for comfortable baby positioning.",
-    image: featureSeat,
+    title: "Front Storage Pouch",
+    description: "Convenient front storage pouch to keep everyday essentials within easy reach.",
+    image: "/storagepouch.jpeg",
   },
   {
-    title: "Adjustable Buckles",
-    description: "Easy adjustment for a flexible fit.",
-    image: featureStraps,
+    title: "Adjustable Side Opening Buckle",
+    description: "Flexible side opening buckle for an easy, customized, and secure fit.",
+    image: "/adjustableside.jpeg",
   },
 ];
 
@@ -114,20 +114,20 @@ const sharedSpecifications = [
 ];
 
 const sharedFeatures = [
-  "Padded shoulder straps",
-  "Head and neck support",
+  "Head & neck support pillow",
+  "Wide cushioned shoulder straps",
+  "Hard board support with air holes",
+  "Arm holes for baby comfort",
+  "Front storage pouch for essentials",
   "Adjustable side opening buckle",
-  "Cushioned seating",
-  "Leg support",
-  "Storage pocket",
-  "Adjustable support straps",
 ];
 
-export const burgundyColor: ProductColor = {
-  name: "Burgundy + Cream",
-  swatch: "#641F3A",
-  image: "/burgandy1.png",
+export const purpleColor: ProductColor = {
+  name: "Purple + Cream",
+  swatch: "#6B21A8",
+  image: "/11burgandy.png",
   images: [
+    "/11burgandy.png",
     "/burgandy1.png",
     "/burgandy2.png",
     "/burgandy3.png",
@@ -139,12 +139,12 @@ export const burgundyColor: ProductColor = {
 export const blackColor: ProductColor = {
   name: "Black + Cream",
   swatch: "#111111",
-  image: "/black1.png",
+  image: "/11black.png",
   images: [
+    "/11black.png",
     "/black1.png",
     "/black2.png",
     "/black3.png",
-    "/black4.png",
     "/black5.png",
     "/black6.png",
   ],
@@ -153,9 +153,9 @@ export const blackColor: ProductColor = {
 export const blueColor: ProductColor = {
   name: "Ocean Blue + Cream",
   swatch: "#1E3A8A",
-  image: "/blue1.png",
+  image: "/11blue.png",
   images: [
-    "/blue1.png",
+    "/11blue.png",
     "/blue2.png",
     "/blue3.png",
     "/blue4.png",
@@ -164,38 +164,39 @@ export const blueColor: ProductColor = {
   ],
 };
 
-export const redColor: ProductColor = {
-  name: "Ruby Red + Cream",
-  swatch: "#B91C1C",
-  image: "/red1.png",
+export const maroonColor: ProductColor = {
+  name: "Maroon + Cream",
+  swatch: "#800000",
+  image: "/11red.png",
   images: [
+    "/11red.png",
     "/red1.png",
     "/red2.png",
     "/red3.png",
-    "/red4.png",
   ],
 };
 
 export const allColors: ProductColor[] = [
-  burgundyColor,
+  purpleColor,
   blackColor,
   blueColor,
-  redColor,
+  maroonColor,
 ];
 
 export const products: Product[] = [
   {
-    id: "herchoice-classic-burgundy",
-    name: "HerChoice Classic Burgundy Carrier",
+    id: "herchoice-classic-purple",
+    name: "HerChoice Classic Purple Carrier",
     price: 499,
     oldPrice: 1200,
     rating: 4.8,
     reviewCount: 142,
     description:
-      "A softly structured everyday carrier in signature burgundy and cream.",
+      "A softly structured everyday carrier in signature purple and cream.",
     longDescription:
-      "The HerChoice Classic Burgundy Carrier is made for everyday closeness — padded shoulder straps, supportive head and neck panel and a cushioned seat, with adjustable buckles so the fit works for you.",
+      "The HerChoice Classic Purple Carrier is made for everyday closeness — padded shoulder straps, supportive head and neck panel and a cushioned seat, with adjustable buckles so the fit works for you.",
     images: [
+      "/11burgandy.png",
       "/burgandy1.png",
       "/burgandy2.png",
       "/burgandy3.png",
@@ -203,7 +204,7 @@ export const products: Product[] = [
       "/burgandy5.png",
     ],
     featureImages: sharedFeatureImages,
-    colors: [burgundyColor, blackColor, blueColor, redColor],
+    colors: [purpleColor, blackColor, blueColor, maroonColor],
     features: sharedFeatures,
     carryingPositions: sharedPositions,
     specifications: sharedSpecifications,
@@ -221,15 +222,15 @@ export const products: Product[] = [
     longDescription:
       "The HerChoice Everyday Black Carrier pairs a quiet black and cream palette with the practical details parents reach for daily — a front storage pocket, cushioned seat and adjustable straps and buckles.",
     images: [
+      "/11black.png",
       "/black1.png",
       "/black2.png",
       "/black3.png",
-      "/black4.png",
       "/black5.png",
       "/black6.png",
     ],
     featureImages: sharedFeatureImages,
-    colors: [blackColor, burgundyColor, blueColor, redColor],
+    colors: [blackColor, purpleColor, blueColor, maroonColor],
     features: sharedFeatures,
     carryingPositions: sharedPositions,
     specifications: sharedSpecifications,
@@ -247,7 +248,7 @@ export const products: Product[] = [
     longDescription:
       "The HerChoice Comfort Blue Carrier features a striking ocean blue hue with cushioned leg support, ergonomic weight distribution, and durable adjustable buckles.",
     images: [
-      "/blue1.png",
+      "/11blue.png",
       "/blue2.png",
       "/blue3.png",
       "/blue4.png",
@@ -255,31 +256,31 @@ export const products: Product[] = [
       "/blue6.png",
     ],
     featureImages: sharedFeatureImages,
-    colors: [blueColor, burgundyColor, blackColor, redColor],
+    colors: [blueColor, purpleColor, blackColor, maroonColor],
     features: sharedFeatures,
     carryingPositions: sharedPositions,
     specifications: sharedSpecifications,
     available: true,
   },
   {
-    id: "herchoice-signature-red",
-    name: "HerChoice Signature Red Carrier",
+    id: "herchoice-signature-maroon",
+    name: "HerChoice Signature Maroon Carrier",
     price: 499,
     oldPrice: 1200,
     rating: 4.5,
     reviewCount: 114,
     description:
-      "Bold ruby red baby carrier crafted with soft padding and breathable fabric.",
+      "Bold maroon baby carrier crafted with soft padding and breathable fabric.",
     longDescription:
-      "The HerChoice Signature Red Carrier offers high visibility, elegant ruby red styling, and ergonomic head & back support for long walks and daily chores.",
+      "The HerChoice Signature Maroon Carrier offers high visibility, elegant maroon styling, and ergonomic head & back support for long walks and daily chores.",
     images: [
+      "/11red.png",
       "/red1.png",
       "/red2.png",
       "/red3.png",
-      "/red4.png",
     ],
     featureImages: sharedFeatureImages,
-    colors: [redColor, burgundyColor, blackColor, blueColor],
+    colors: [maroonColor, purpleColor, blackColor, blueColor],
     features: sharedFeatures,
     carryingPositions: sharedPositions,
     specifications: sharedSpecifications,
@@ -289,6 +290,6 @@ export const products: Product[] = [
 
 export const getProduct = (id: string) => products.find((p) => p.id === id);
 
-export const carrierBurgundy = "/burgandy1.png";
-export const carrierBlack = "/black1.png";
+export const carrierBurgundy = "/11burgandy.png";
+export const carrierBlack = "/11black.png";
 export { featurePocket, sharedPositions };
