@@ -70,10 +70,11 @@ function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
   const [addedToast, setAddedToast] = useState(false);
 
-  // Combine product main images + selected color images
-  const galleryImages: string[] = activeColor.images && activeColor.images.length > 0
-    ? activeColor.images
-    : Array.from(new Set([activeColor.image, ...product.images]));
+  // Use strictly the selected color's photo series (e.g. burgandy1..5, black1..6, blue1..6, red1..4)
+  const galleryImages: string[] =
+    activeColor.images && activeColor.images.length > 0
+      ? activeColor.images
+      : product.images;
   const mainImage = galleryImages[selectedImageIndex] || activeColor.image || product.images[0];
 
   const handleColorChange = (color: typeof product.colors[0]) => {
@@ -361,68 +362,71 @@ function ProductDetails() {
             </div>
           </section>
 
-          {/* DESIGN DETAILS & SPECIFICATIONS GRID */}
-          <div className="grid gap-8 lg:grid-cols-2">
-            {/* FEATURED HIGHLIGHT CARDS */}
-            <section className="rounded-3xl bg-card p-8 shadow-soft">
-              <h2 className="text-2xl font-semibold text-foreground mb-6">
-                Designed in Detail
+          {/* FEATURED HIGHLIGHT CARDS (ALL 6 FEATURES) */}
+          <section className="rounded-3xl bg-card p-8 lg:p-12 shadow-soft">
+            <div className="mb-8 text-center max-w-2xl mx-auto">
+              <p className="eyebrow">Product Features</p>
+              <h2 className="mt-2 text-2xl font-semibold sm:text-3xl lg:text-4xl text-foreground">
+                Features Beyond Expectation
               </h2>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {product.featureImages.slice(0, 4).map((f, idx) => (
-                  <div
+              <p className="mt-2 text-muted-foreground">
+                Every detail thoughtfully engineered for baby comfort and ergonomic parental support.
+              </p>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {product.featureImages.map((f, idx) => (
+                <div
+                  key={idx}
+                  className="overflow-hidden rounded-2xl bg-background border border-border p-5 shadow-sm transition-transform duration-300 hover:-translate-y-1"
+                >
+                  {f.image && (
+                    <img
+                      src={f.image}
+                      alt={f.title}
+                      className="h-48 w-full object-contain bg-card rounded-xl mb-4 p-2"
+                    />
+                  )}
+                  <h3 className="font-semibold text-base text-foreground">{f.title}</h3>
+                  <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">{f.description}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* TECHNICAL SPECIFICATIONS */}
+          <section className="rounded-3xl bg-card p-8 lg:p-12 shadow-soft">
+            <div>
+              <h2 className="text-2xl font-semibold text-foreground">
+                Technical Specifications
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Comprehensive component list engineered for durability and balance.
+              </p>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {product.specifications.map((spec, idx) => (
+                  <li
                     key={idx}
-                    className="overflow-hidden rounded-2xl bg-background border border-border p-4"
+                    className="flex items-center gap-2.5 rounded-xl bg-background px-3.5 py-3 text-xs font-medium text-foreground border border-border"
                   >
-                    {f.image && (
-                      <img
-                        src={f.image}
-                        alt={f.title}
-                        className="h-32 w-full object-cover rounded-xl mb-3"
-                      />
-                    )}
-                    <h3 className="font-semibold text-sm text-foreground">{f.title}</h3>
-                    <p className="mt-1 text-xs text-muted-foreground">{f.description}</p>
-                  </div>
+                    <Ruler className="h-4 w-4 shrink-0 text-accent" />
+                    <span>{spec}</span>
+                  </li>
                 ))}
-              </div>
-            </section>
+              </ul>
+            </div>
 
-            {/* TECHNICAL SPECIFICATIONS */}
-            <section className="rounded-3xl bg-card p-8 shadow-soft flex flex-col justify-between">
-              <div>
-                <h2 className="text-2xl font-semibold text-foreground">
-                  Technical Specifications
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Comprehensive component list engineered for durability and balance.
-                </p>
-                <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {product.specifications.map((spec, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-center gap-2.5 rounded-xl bg-background px-3.5 py-3 text-xs font-medium text-foreground border border-border"
-                    >
-                      <Ruler className="h-4 w-4 shrink-0 text-accent" />
-                      <span>{spec}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-8 rounded-2xl bg-secondary/60 p-5 border border-primary/20">
-                <div className="flex items-center gap-3">
-                  <Heart className="h-6 w-6 text-primary shrink-0" />
-                  <div>
-                    <h4 className="text-sm font-semibold text-primary">Need help choosing?</h4>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      Chat directly with our team on WhatsApp for personalized recommendations.
-                    </p>
-                  </div>
+            <div className="mt-8 rounded-2xl bg-secondary/60 p-5 border border-primary/20">
+              <div className="flex items-center gap-3">
+                <Heart className="h-6 w-6 text-primary shrink-0" />
+                <div>
+                  <h4 className="text-sm font-semibold text-primary">Need help choosing?</h4>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Chat directly with our team on WhatsApp for personalized recommendations.
+                  </p>
                 </div>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
 
           {/* RELATED PRODUCTS */}
           {relatedProducts.length > 0 && (
